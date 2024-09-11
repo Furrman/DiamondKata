@@ -1,4 +1,4 @@
-﻿namespace DiamondKata.ConsoleApp;
+﻿namespace DiamondKata;
 
 class Program
 {
