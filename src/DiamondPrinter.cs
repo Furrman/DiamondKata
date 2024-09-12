@@ -15,57 +15,75 @@ public class DiamondPrinter
         }
 
         var stringBuilder = new StringBuilder();
-        var inputCharIndex = (int)char.ToUpper(input);
+        var inputChar = char.ToUpper(input);
+        var inputCharIndex = (int)inputChar;
+        var lineLength = 2 * (inputCharIndex - FIRST_LETTER_INDEX) + 1;
 
-        AppendTopDiamondPartIncludingMiddleLine(stringBuilder, inputCharIndex);
-        AppendBottomDiamondPart(stringBuilder, inputCharIndex);
+        AppendTopDiamondPartIncludingMiddleLine(stringBuilder, inputChar, inputCharIndex, lineLength);
+        AppendBottomDiamondPart(stringBuilder, inputChar, inputCharIndex, lineLength);
 
         return stringBuilder.ToString();
     }
 
     private void AppendTopDiamondPartIncludingMiddleLine(StringBuilder stringBuilder,
-        int inputCharIndex)
+        char inputChar,
+        int inputCharIndex,
+        int lineLength)
     {
         for (int i = FIRST_LETTER_INDEX; i <= inputCharIndex; i++)
         {
-            var currentChar = (char)i;
-            var distance = GetDistanceBetweenChars(inputCharIndex, i);
-            AppendCharToLine(stringBuilder, currentChar, distance);
+            AppendDiamondLine(stringBuilder, i, inputChar, lineLength);
             AppendNewLineExceptLastChar(stringBuilder, i, inputCharIndex);
         }
     }
 
     private void AppendBottomDiamondPart(StringBuilder stringBuilder,
-        int inputCharIndex)
+        char inputChar,
+        int inputCharIndex,
+        int lineLength)
     {
         for (int i = inputCharIndex-1; i >= FIRST_LETTER_INDEX; i--)
         {
-            var currentChar = (char)i;
-            var distance = GetDistanceBetweenChars(inputCharIndex, i);
-            AppendNewLineExceptLastChar(stringBuilder, inputCharIndex, distance);
-            AppendCharToLine(stringBuilder, currentChar, distance);
+            AppendNewLineExceptLastChar(stringBuilder, inputCharIndex, i);
+            AppendDiamondLine(stringBuilder, i, inputCharIndex, lineLength);
         }
     }
 
-    private void AppendCharToLine(StringBuilder stringBuilder, 
-        char currentChar,
-        int distance)
+    private void AppendDiamondLine(StringBuilder stringBuilder,
+        int currentCharIndex,
+        int inputCharIndex,
+        int lineLength)
     {
-        if (distance > 0)
+        var currentChar = (char)currentCharIndex;
+        var hasOneCharInLine = currentCharIndex == FIRST_LETTER_INDEX;
+        var charCountInLine = hasOneCharInLine ? 1 : 2;
+        var sideSpaceLength = inputCharIndex - currentCharIndex;
+        var middleSpaceLength = lineLength - 2 * sideSpaceLength - charCountInLine;
+
+        // Add space before left letter
+        if (sideSpaceLength > 0)
         {
-            stringBuilder.Append(' ', distance);
+            stringBuilder.Append(' ', sideSpaceLength);
         }
 
         stringBuilder.Append(currentChar);
-        
-        if (currentChar != FIRST_LETTER)
+
+        // Add space between letters
+        if (middleSpaceLength > 0)
+        {
+            stringBuilder.Append(' ', middleSpaceLength);
+        }
+
+        // Add letter again if it's not the first letter 
+        if (!hasOneCharInLine)
         {
             stringBuilder.Append(currentChar);
         }
         
-        if (distance > 0)
+        // Add space after right letter
+        if (sideSpaceLength > 0)
         {
-            stringBuilder.Append(' ', distance);
+            stringBuilder.Append(' ', sideSpaceLength);
         }
     }
 
@@ -77,11 +95,5 @@ public class DiamondPrinter
         {
             stringBuilder.AppendLine();
         }
-    }
-
-    private int GetDistanceBetweenChars(int inputCharIndex, 
-        int currentCharIndex)
-    {
-        return Math.Abs(inputCharIndex - currentCharIndex);
     }
 }

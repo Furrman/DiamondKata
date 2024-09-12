@@ -185,4 +185,22 @@ public class DiamondPrinterTests
         Assert.EndsWith("B ", lines[3]);
         Assert.EndsWith("A  ", lines[4]);
     }
+
+    [Fact]
+    public void Build_WhenCLetterSend_ReturnLinesWithSpacesBetweenCharsEqualDistanceBetweenFirstAndLastLetter()
+    {
+        // Arrange
+        var input = 'C';
+
+        // Act
+        var diamond = _printer.Build(input);
+        var lines = diamond.Split(Environment.NewLine);
+
+        // Assert
+        Assert.Equal("  A  ", lines[0]);
+        Assert.Contains("B B", lines[1]);
+        Assert.Contains("C   C", lines[2]);
+        Assert.Contains("B B", lines[3]);
+        Assert.Equal("  A  ", lines[4]);
+    }
 }
