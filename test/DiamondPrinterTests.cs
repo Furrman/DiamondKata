@@ -5,7 +5,7 @@ public class DiamondPrinterTests
     private readonly DiamondPrinter _printer = new DiamondPrinter();
 
     [Fact]
-    public void Print_WhenAParameterSend_ReturnA()
+    public void Build_WhenAParameterSend_ReturnA()
     {
         // Arrange
         var input = 'A';
@@ -18,7 +18,7 @@ public class DiamondPrinterTests
     }
     
     [Fact]
-    public void Print_WhenNonLetterParameterSend_ReturnNull()
+    public void Build_WhenNonLetterParameterSend_ReturnNull()
     {
         // Arrange
         var input = '1';
@@ -31,7 +31,7 @@ public class DiamondPrinterTests
     }
     
     [Fact]
-    public void Print_WhenBParameterSend_ReturnStringWithABChars()
+    public void Build_WhenBParameterSend_ReturnStringWithABChars()
     {
         // Arrange
         var input = 'B';
