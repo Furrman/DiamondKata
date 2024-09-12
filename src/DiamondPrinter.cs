@@ -42,7 +42,7 @@ public class DiamondPrinter
         int inputCharIndex,
         int lineLength)
     {
-        for (int i = inputCharIndex-1; i >= FIRST_LETTER_INDEX; i--)
+        for (int i = inputCharIndex - 1; i >= FIRST_LETTER_INDEX; i--)
         {
             AppendNewLineExceptLastChar(stringBuilder, inputCharIndex, i);
             AppendDiamondLine(stringBuilder, i, inputCharIndex, lineLength);
@@ -60,27 +60,21 @@ public class DiamondPrinter
         var sideSpaceLength = inputCharIndex - currentCharIndex;
         var middleSpaceLength = lineLength - 2 * sideSpaceLength - charCountInLine;
 
-        // Add space before left letter
+        // Add left padding
         if (sideSpaceLength > 0)
         {
             stringBuilder.Append(' ', sideSpaceLength);
         }
 
+        // Add chars and middle space
         stringBuilder.Append(currentChar);
-
-        // Add space between letters
         if (middleSpaceLength > 0)
         {
             stringBuilder.Append(' ', middleSpaceLength);
-        }
-
-        // Add letter again if it's not the first letter 
-        if (!hasOneCharInLine)
-        {
             stringBuilder.Append(currentChar);
         }
         
-        // Add space after right letter
+        // Add right padding
         if (sideSpaceLength > 0)
         {
             stringBuilder.Append(' ', sideSpaceLength);
