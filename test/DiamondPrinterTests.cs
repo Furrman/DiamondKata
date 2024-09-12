@@ -43,4 +43,19 @@ public class DiamondPrinterTests
         Assert.Contains("A", result);
         Assert.Contains("B", result);
     }
+    
+    [Fact]
+    public void Build_WhenCParameterSend_ReturnStringWithAllCharsFromAToC()
+    {
+        // Arrange
+        var input = 'C';
+
+        // Act
+        var result = _printer.Build(input);
+
+        // Assert
+        Assert.Contains("A", result);
+        Assert.Contains("B", result);
+        Assert.Contains("C", result);
+    }
 }

@@ -4,6 +4,9 @@ namespace DiamondKata;
 
 public class DiamondPrinter
 {
+    private const char FIRST_LETTER = 'A';
+    private const int FIRST_LETTER_INDEX = (int)FIRST_LETTER;
+
     public string? Build(char input)
     {
         if (!char.IsLetter(input))
@@ -12,13 +15,13 @@ public class DiamondPrinter
         }
 
         var diamond = new StringBuilder();
-        if (input == 'A')
+        var inputCharIndex = (int)input;
+        for (int i = FIRST_LETTER_INDEX; i <= inputCharIndex; i++)
         {
-            diamond.Append('A');
-            return diamond.ToString();
+            var currentChar = (char)i;
+            diamond.Append(currentChar);
         }
-        diamond.Append('A');
-        diamond.Append('B');
+
         return diamond.ToString();
     }
 }
