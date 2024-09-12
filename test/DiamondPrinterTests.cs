@@ -71,4 +71,18 @@ public class DiamondPrinterTests
         // Assert
         Assert.Equal("A", result);
     }
+    
+    [Fact]
+    public void Build_WhenCLetterSend_ReturnThreeLineString()
+    {
+        // Arrange
+        var input = 'C';
+
+        // Act
+        var diamond = _printer.Build(input);
+        var lines = diamond.Split(Environment.NewLine);
+
+        // Assert
+        Assert.Equal(3, lines.Length);
+    }
 }

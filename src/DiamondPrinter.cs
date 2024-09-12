@@ -14,14 +14,18 @@ public class DiamondPrinter
             return null;
         }
 
-        var diamond = new StringBuilder();
+        var stringBuilder = new StringBuilder();
         var inputCharIndex = (int)char.ToUpper(input);
         for (int i = FIRST_LETTER_INDEX; i <= inputCharIndex; i++)
         {
             var currentChar = (char)i;
-            diamond.Append(currentChar);
+            stringBuilder.Append(currentChar);
+            if (currentChar != FIRST_LETTER)
+            {
+                stringBuilder.AppendLine();
+            }
         }
 
-        return diamond.ToString();
+        return stringBuilder.ToString();
     }
 }
