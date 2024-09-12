@@ -1,14 +1,24 @@
-﻿namespace DiamondKata;
+﻿using System.Text;
+
+namespace DiamondKata;
 
 public class DiamondPrinter
 {
     public string? Print(char input)
     {
+        if (!char.IsLetter(input))
+        {
+            return null;
+        }
+
+        var diamond = new StringBuilder();
         if (input == 'A')
         {
-            return "A";
+            diamond.Append('A');
+            return diamond.ToString();
         }
-        
-        return null;
+        diamond.Append('A');
+        diamond.Append('B');
+        return diamond.ToString();
     }
 }

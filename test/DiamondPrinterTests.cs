@@ -18,7 +18,7 @@ public class DiamondPrinterTests
     }
     
     [Fact]
-    public void Print_WhenNonCharParameterSend_ReturnNull()
+    public void Print_WhenNonLetterParameterSend_ReturnNull()
     {
         // Arrange
         var input = '1';
@@ -28,5 +28,19 @@ public class DiamondPrinterTests
 
         // Assert
         Assert.Null(result);
+    }
+    
+    [Fact]
+    public void Print_WhenBParameterSend_ReturnStringWithABChars()
+    {
+        // Arrange
+        var input = 'B';
+
+        // Act
+        var result = _printer.Print(input);
+
+        // Assert
+        Assert.Contains("A", result);
+        Assert.Contains("B", result);
     }
 }
