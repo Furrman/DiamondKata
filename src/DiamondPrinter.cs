@@ -55,11 +55,17 @@ public class DiamondPrinter
         {
             stringBuilder.Append(' ', distance);
         }
-        stringBuilder.Append(currentChar);
 
+        stringBuilder.Append(currentChar);
+        
         if (currentChar != FIRST_LETTER)
         {
             stringBuilder.Append(currentChar);
+        }
+        
+        if (distance > 0)
+        {
+            stringBuilder.Append(' ', distance);
         }
     }
 

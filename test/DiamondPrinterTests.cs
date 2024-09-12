@@ -151,7 +151,7 @@ public class DiamondPrinterTests
     }
 
     [Fact]
-    public void Build_WhenCLetterSend_ReturnALinesWithLeftSpacesEqualDistanceBetweenFirstAndLastLetter()
+    public void Build_WhenCLetterSend_ReturnLinesWithLeftSpacesEqualDistanceBetweenFirstAndLastLetter()
     {
         // Arrange
         var input = 'C';
@@ -161,7 +161,28 @@ public class DiamondPrinterTests
         var lines = diamond.Split(Environment.NewLine);
 
         // Assert
-        Assert.Contains("  A", lines[0]);
-        Assert.Contains("  A", lines[4]);
+        Assert.StartsWith("  A", lines[0]);
+        Assert.StartsWith(" B", lines[1]);
+        Assert.StartsWith("C", lines[2]);
+        Assert.StartsWith(" B", lines[3]);
+        Assert.StartsWith("  A", lines[4]);
+    }
+
+    [Fact]
+    public void Build_WhenCLetterSend_ReturnLinesWithRightSpacesEqualDistanceBetweenFirstAndLastLetter()
+    {
+        // Arrange
+        var input = 'C';
+
+        // Act
+        var diamond = _printer.Build(input);
+        var lines = diamond.Split(Environment.NewLine);
+
+        // Assert
+        Assert.EndsWith("A  ", lines[0]);
+        Assert.EndsWith("B ", lines[1]);
+        Assert.EndsWith("C", lines[2]);
+        Assert.EndsWith("B ", lines[3]);
+        Assert.EndsWith("A  ", lines[4]);
     }
 }
