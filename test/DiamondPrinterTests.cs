@@ -101,4 +101,20 @@ public class DiamondPrinterTests
         Assert.Contains("B", lines[1]);
         Assert.Contains("C", lines[2]);
     }
+    
+    [Fact]
+    public void Build_WhenCLetterSend_ReturnAnyCharacterOtherThanATwiceInEachLine()
+    {
+        // Arrange
+        var input = 'C';
+
+        // Act
+        var diamond = _printer.Build(input);
+        var lines = diamond.Split(Environment.NewLine);
+
+        // Assert
+        Assert.Equal(1, lines[0].Count(l => l == 'A'));
+        Assert.Equal(2, lines[1].Count(l => l == 'B'));
+        Assert.Equal(2, lines[2].Count(l => l == 'C'));
+    }
 }

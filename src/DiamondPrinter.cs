@@ -19,11 +19,22 @@ public class DiamondPrinter
         for (int i = FIRST_LETTER_INDEX; i <= inputCharIndex; i++)
         {
             var currentChar = (char)i;
-            stringBuilder.Append(currentChar);
+            AppendCharToLine(stringBuilder, currentChar);
             AppendNewLineExceptLastChar(stringBuilder, i, inputCharIndex);
         }
 
         return stringBuilder.ToString();
+    }
+
+    private void AppendCharToLine(StringBuilder stringBuilder, 
+        char currentChar)
+    {
+        stringBuilder.Append(currentChar);
+
+        if (currentChar != FIRST_LETTER)
+        {
+            stringBuilder.Append(currentChar);
+        }
     }
 
     private void AppendNewLineExceptLastChar(StringBuilder stringBuilder, 
