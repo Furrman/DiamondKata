@@ -60,25 +60,9 @@ public class DiamondPrinter
         var sideSpaceLength = inputCharIndex - currentCharIndex;
         var middleSpaceLength = lineLength - 2 * sideSpaceLength - charCountInLine;
 
-        // Add left padding
-        if (sideSpaceLength > 0)
-        {
-            stringBuilder.Append(' ', sideSpaceLength);
-        }
-
-        // Add chars and middle space
-        stringBuilder.Append(currentChar);
-        if (middleSpaceLength > 0)
-        {
-            stringBuilder.Append(' ', middleSpaceLength);
-            stringBuilder.Append(currentChar);
-        }
-        
-        // Add right padding
-        if (sideSpaceLength > 0)
-        {
-            stringBuilder.Append(' ', sideSpaceLength);
-        }
+        AddPadding(stringBuilder, sideSpaceLength);
+        AddCharsAndMiddleSpace(stringBuilder, currentChar, middleSpaceLength);
+        AddPadding(stringBuilder, sideSpaceLength);
     }
 
     private void AppendNewLineExceptLastChar(StringBuilder stringBuilder, 
@@ -88,6 +72,27 @@ public class DiamondPrinter
         if (index != inputCharIndex)
         {
             stringBuilder.AppendLine();
+        }
+    }
+
+    private void AddPadding(StringBuilder stringBuilder, 
+        int spaceLength)
+    {
+        if (spaceLength > 0)
+        {
+            stringBuilder.Append(' ', spaceLength);
+        }
+    }
+
+    private void AddCharsAndMiddleSpace(StringBuilder stringBuilder, 
+        char currentChar, 
+        int middleSpaceLength)
+    {
+        stringBuilder.Append(currentChar);
+        if (middleSpaceLength > 0)
+        {
+            stringBuilder.Append(' ', middleSpaceLength);
+            stringBuilder.Append(currentChar);
         }
     }
 }

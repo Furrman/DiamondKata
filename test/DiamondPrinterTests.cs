@@ -205,10 +205,27 @@ public class DiamondPrinterTests
         // Assert
         Assert.NotNull(diamond);
         var lines = diamond.Split(Environment.NewLine);
-        Assert.Equal("  A  ", lines[0]);
         Assert.Contains("B B", lines[1]);
         Assert.Contains("C   C", lines[2]);
         Assert.Contains("B B", lines[3]);
+    }
+    
+    [Fact]
+    public void Build_WhenCLetterSend_ReturnDiamondShapeFromLettersFromAToC()
+    {
+        // Arrange
+        var input = 'C';
+
+        // Act
+        var diamond = _printer.Build(input);
+
+        // Assert
+        Assert.NotNull(diamond);
+        var lines = diamond.Split(Environment.NewLine);
+        Assert.Equal("  A  ", lines[0]);
+        Assert.Equal(" B B ", lines[1]);
+        Assert.Equal("C   C", lines[2]);
+        Assert.Equal(" B B ", lines[3]);
         Assert.Equal("  A  ", lines[4]);
     }
 }
