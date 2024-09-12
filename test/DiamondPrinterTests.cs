@@ -73,7 +73,7 @@ public class DiamondPrinterTests
     }
     
     [Fact]
-    public void Build_WhenCLetterSend_ReturnThreeLineString()
+    public void Build_WhenCLetterSend_ReturnMultilineString()
     {
         // Arrange
         var input = 'C';
@@ -83,7 +83,7 @@ public class DiamondPrinterTests
         var lines = diamond.Split(Environment.NewLine);
 
         // Assert
-        Assert.Equal(3, lines.Length);
+        Assert.True(lines.Length > 1);
     }
     
     [Fact]
@@ -116,5 +116,19 @@ public class DiamondPrinterTests
         Assert.Equal(1, lines[0].Count(l => l == 'A'));
         Assert.Equal(2, lines[1].Count(l => l == 'B'));
         Assert.Equal(2, lines[2].Count(l => l == 'C'));
+    }
+    
+    [Fact]
+    public void Build_WhenCLetterSend_ReturnTwiceManyLinesPerEachLetterExceptProvidedOne()
+    {
+        // Arrange
+        var input = 'C';
+
+        // Act
+        var diamond = _printer.Build(input);
+        var lines = diamond.Split(Environment.NewLine);
+
+        // Assert
+        Assert.Equal(5, lines.Length);
     }
 }

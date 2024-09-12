@@ -16,14 +16,33 @@ public class DiamondPrinter
 
         var stringBuilder = new StringBuilder();
         var inputCharIndex = (int)char.ToUpper(input);
+
+        AppendTopDiamondPartIncludingMiddleLine(stringBuilder, inputCharIndex);
+        AppendBottomDiamondPart(stringBuilder, inputCharIndex);
+
+        return stringBuilder.ToString();
+    }
+
+    private void AppendTopDiamondPartIncludingMiddleLine(StringBuilder stringBuilder,
+        int inputCharIndex)
+    {
         for (int i = FIRST_LETTER_INDEX; i <= inputCharIndex; i++)
         {
             var currentChar = (char)i;
             AppendCharToLine(stringBuilder, currentChar);
             AppendNewLineExceptLastChar(stringBuilder, i, inputCharIndex);
         }
+    }
 
-        return stringBuilder.ToString();
+    private void AppendBottomDiamondPart(StringBuilder stringBuilder,
+        int inputCharIndex)
+    {
+        for (int i = inputCharIndex-1; i >= FIRST_LETTER_INDEX; i--)
+        {
+            var currentChar = (char)i;
+            AppendNewLineExceptLastChar(stringBuilder, i, inputCharIndex);
+            AppendCharToLine(stringBuilder, currentChar);
+        }
     }
 
     private void AppendCharToLine(StringBuilder stringBuilder, 
