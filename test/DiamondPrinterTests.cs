@@ -16,4 +16,17 @@ public class DiamondPrinterTests
         // Assert
         Assert.Equal("A", result);
     }
+    
+    [Fact]
+    public void Print_WhenNonCharParameterSend_ReturnNull()
+    {
+        // Arrange
+        var input = '1';
+
+        // Act
+        var result = _printer.Print(input);
+
+        // Assert
+        Assert.Null(result);
+    }
 }
