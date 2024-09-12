@@ -11,7 +11,7 @@ public class DiamondPrinterTests
         var input = 'A';
 
         // Act
-        var result = _printer.Print(input);
+        var result = _printer.Build(input);
 
         // Assert
         Assert.Equal("A", result);
@@ -24,7 +24,7 @@ public class DiamondPrinterTests
         var input = '1';
 
         // Act
-        var result = _printer.Print(input);
+        var result = _printer.Build(input);
 
         // Assert
         Assert.Null(result);
@@ -37,7 +37,7 @@ public class DiamondPrinterTests
         var input = 'B';
 
         // Act
-        var result = _printer.Print(input);
+        var result = _printer.Build(input);
 
         // Assert
         Assert.Contains("A", result);

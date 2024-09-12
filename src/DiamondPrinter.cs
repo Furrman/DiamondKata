@@ -4,7 +4,7 @@ namespace DiamondKata;
 
 public class DiamondPrinter
 {
-    public string? Print(char input)
+    public string? Build(char input)
     {
         if (!char.IsLetter(input))
         {
