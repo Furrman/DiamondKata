@@ -15,7 +15,7 @@ public class DiamondPrinter
         }
 
         var diamond = new StringBuilder();
-        var inputCharIndex = (int)input;
+        var inputCharIndex = (int)char.ToUpper(input);
         for (int i = FIRST_LETTER_INDEX; i <= inputCharIndex; i++)
         {
             var currentChar = (char)i;

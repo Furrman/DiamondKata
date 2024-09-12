@@ -5,7 +5,7 @@ public class DiamondPrinterTests
     private readonly DiamondPrinter _printer = new DiamondPrinter();
 
     [Fact]
-    public void Build_WhenAParameterSend_ReturnA()
+    public void Build_WhenALetterSend_ReturnA()
     {
         // Arrange
         var input = 'A';
@@ -31,7 +31,7 @@ public class DiamondPrinterTests
     }
     
     [Fact]
-    public void Build_WhenBParameterSend_ReturnStringWithABChars()
+    public void Build_WhenBLetterSend_ReturnStringWithABChars()
     {
         // Arrange
         var input = 'B';
@@ -45,7 +45,7 @@ public class DiamondPrinterTests
     }
     
     [Fact]
-    public void Build_WhenCParameterSend_ReturnStringWithAllCharsFromAToC()
+    public void Build_WhenCLetterSend_ReturnStringWithAllCharsFromAToC()
     {
         // Arrange
         var input = 'C';
@@ -57,5 +57,18 @@ public class DiamondPrinterTests
         Assert.Contains("A", result);
         Assert.Contains("B", result);
         Assert.Contains("C", result);
+    }
+    
+    [Fact]
+    public void Build_WhenLowerCaseLetterSend_ReturnStringWithAllCharsFromAToC()
+    {
+        // Arrange
+        var input = 'a';
+
+        // Act
+        var result = _printer.Build(input);
+
+        // Assert
+        Assert.Equal("A", result);
     }
 }
