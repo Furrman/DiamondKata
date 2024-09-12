@@ -80,9 +80,10 @@ public class DiamondPrinterTests
 
         // Act
         var diamond = _printer.Build(input);
-        var lines = diamond.Split(Environment.NewLine);
 
         // Assert
+        Assert.NotNull(diamond);
+        var lines = diamond.Split(Environment.NewLine);
         Assert.True(lines.Length > 1);
     }
     
@@ -94,9 +95,10 @@ public class DiamondPrinterTests
 
         // Act
         var diamond = _printer.Build(input);
-        var lines = diamond.Split(Environment.NewLine);
 
         // Assert
+        Assert.NotNull(diamond);
+        var lines = diamond.Split(Environment.NewLine);
         Assert.Contains("A", lines[0]);
         Assert.Contains("B", lines[1]);
         Assert.Contains("C", lines[2]);
@@ -110,9 +112,10 @@ public class DiamondPrinterTests
 
         // Act
         var diamond = _printer.Build(input);
-        var lines = diamond.Split(Environment.NewLine);
 
         // Assert
+        Assert.NotNull(diamond);
+        var lines = diamond.Split(Environment.NewLine);
         Assert.Equal(1, lines[0].Count(l => l == 'A'));
         Assert.Equal(2, lines[1].Count(l => l == 'B'));
         Assert.Equal(2, lines[2].Count(l => l == 'C'));
@@ -126,9 +129,10 @@ public class DiamondPrinterTests
 
         // Act
         var diamond = _printer.Build(input);
-        var lines = diamond.Split(Environment.NewLine);
 
         // Assert
+        Assert.NotNull(diamond);
+        var lines = diamond.Split(Environment.NewLine);
         Assert.Equal(5, lines.Length);
     }
 
@@ -140,9 +144,10 @@ public class DiamondPrinterTests
 
         // Act
         var diamond = _printer.Build(input);
-        var lines = diamond.Split(Environment.NewLine);
 
         // Assert
+        Assert.NotNull(diamond);
+        var lines = diamond.Split(Environment.NewLine);
         Assert.Contains("A", lines[0]);
         Assert.Contains("B", lines[1]);
         Assert.Contains("C", lines[2]);
@@ -158,9 +163,10 @@ public class DiamondPrinterTests
 
         // Act
         var diamond = _printer.Build(input);
-        var lines = diamond.Split(Environment.NewLine);
 
         // Assert
+        Assert.NotNull(diamond);
+        var lines = diamond.Split(Environment.NewLine);
         Assert.StartsWith("  A", lines[0]);
         Assert.StartsWith(" B", lines[1]);
         Assert.StartsWith("C", lines[2]);
@@ -176,9 +182,10 @@ public class DiamondPrinterTests
 
         // Act
         var diamond = _printer.Build(input);
-        var lines = diamond.Split(Environment.NewLine);
 
         // Assert
+        Assert.NotNull(diamond);
+        var lines = diamond.Split(Environment.NewLine);
         Assert.EndsWith("A  ", lines[0]);
         Assert.EndsWith("B ", lines[1]);
         Assert.EndsWith("C", lines[2]);
@@ -194,9 +201,10 @@ public class DiamondPrinterTests
 
         // Act
         var diamond = _printer.Build(input);
-        var lines = diamond.Split(Environment.NewLine);
 
         // Assert
+        Assert.NotNull(diamond);
+        var lines = diamond.Split(Environment.NewLine);
         Assert.Equal("  A  ", lines[0]);
         Assert.Contains("B B", lines[1]);
         Assert.Contains("C   C", lines[2]);
