@@ -45,6 +45,8 @@ _ _ A _ _
 
 I decided to implement simple cross platform console application with Visual Studio Code as IDE. To achieve cross platform support I used the newest .NET SDK version 8. I wrote application using TDD approach with usage of xUnit as my test library. That is the only package I felt necessary to achieve the goal.
 
+In addition to the code solution I created two additional folders. First one is ***.github*** which contains GitHub Action workflow definition for building application and running tests for every push to *main* branch. Second one ***.vscode*** contains information how to build and run application from Visual Studio Code IDE.
+
 ### Project structure
 
 Project is splitted into two folders - `src` and `test`. First one is the place where I put console application together with class responsible for generating diamond string, and the second one for test project with unit tests targeting mentioned class.
